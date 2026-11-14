@@ -1,6 +1,6 @@
 # Haku
 
-> Your guide through the job search.
+> Your guide through the job search
 
 Haku is a Chrome extension that saves job postings in one click, tells you if you've already applied, and helps you prepare once an interview is booked. It's named after Haku from *Spirited Away*, who helps Chihiro through a difficult journey.
 
