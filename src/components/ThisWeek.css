@@ -1,0 +1,23 @@
+.week {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 0 6px;
+}
+
+.week__label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.week__clovers { display: flex; gap: 2px; flex: 1; }
+.week__clovers img { width: 22px; height: 28px; }
+
+.week__note {
+  font-family: var(--font-hand);
+  font-size: 14px;
+  color: var(--teal);
+}

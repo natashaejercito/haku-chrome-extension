@@ -1,0 +1,44 @@
+.tab {
+  position: relative;
+  padding: 7px 16px 6px;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  background: var(--tab-grey);
+  color: var(--tab-text);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tab--active {
+  padding: 9px 16px 8px;
+  background: var(--paper);
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* draw the hovered tab above its neighbours so the flowers aren't hidden */
+.tab:hover,
+.tab:focus-visible { z-index: 1; }
+
+.tab__bit {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.5) rotate(var(--r));
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  pointer-events: none;
+}
+
+.tab__bit--1 { top: -8px; left: -4px;  --r: -15deg; }
+.tab__bit--2 { top: -4px; left: 22%;  --r: 10deg; }
+.tab__bit--3 { top: -9px; left: 45%;  --r: -8deg; }
+.tab__bit--4 { top: -3px; left: 66%;  --r: 20deg; }
+.tab__bit--5 { top: -8px; right: -4px; --r: 12deg; }
+
+.tab:hover .tab__bit,
+.tab:focus-visible .tab__bit {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(var(--r));
+}

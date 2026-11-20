@@ -1,0 +1,31 @@
+.field { display: flex; flex-direction: column; min-width: 0; }
+
+.field__label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.field__input {
+  height: 32px;
+  padding: 0 2px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.field__input::placeholder { color: var(--line); }
+
+.field__input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--teal);
+}
+
+.field__input--mono,
+.field__input--deadline { font-family: var(--font-mono); font-size: 13px; }
+
+.field__input--deadline { color: var(--rust); }

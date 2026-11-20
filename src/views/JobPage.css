@@ -1,0 +1,85 @@
+.page {
+  position: relative;          /* so the clover and stamp position inside it */
+  padding: 22px 22px 20px;
+  background: var(--paper);
+  border-radius: 4px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.entry__no {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.entry__date {
+  margin: 2px 0 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.entry__squiggle path {
+  fill: none;
+  stroke: var(--aqua);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.page__form { display: flex; flex-direction: column; gap: 12px; }
+
+.page__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.desc__box {
+  height: 120px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--tab-grey);
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #2A3A3F;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: none;
+}
+
+.desc__box:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+
+.page__actions { display: flex; align-items: center; gap: 14px; margin-top: 2px; }
+
+.btn-save {
+  height: 46px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 10px;
+  background: var(--teal);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-save:hover { background: #025466; }
+
+.btn-link {
+  height: 46px;
+  padding: 0 6px;
+  border: none;
+  background: none;
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
