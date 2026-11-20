@@ -1,0 +1,50 @@
+.splash {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash__clovers {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: clovers-fall 2s ease-out both;
+}
+
+.splash__text {
+  position: relative;
+  text-align: center;
+  animation: text-in 1.2s ease-out 0.6s both;  /* starts 0.6s in */
+}
+
+.splash__logo {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 96px;
+  line-height: 1;
+  color: var(--teal);
+}
+
+.splash__tagline {
+  margin: 6px 0 0;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--ink);
+}
+
+@keyframes clovers-fall {
+  from { transform: translateY(-160px); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes text-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
