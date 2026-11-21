@@ -83,3 +83,17 @@
   text-underline-offset: 4px;
   cursor: pointer;
 }
+.page__status {
+  margin: -6px 0 0;
+  min-height: 1.4em;  /* keeps the layout from jumping when the message changes */
+  font-family: var(--font-hand);
+  font-size: 14px;
+  color: var(--teal);
+}
+
+.page__status--warn { color: var(--rust); }
+
+.btn-save:disabled {
+  background: var(--line);
+  cursor: not-allowed;
+}
