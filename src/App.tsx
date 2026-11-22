@@ -3,17 +3,10 @@ import Splash from "./views/Splash.tsx";
 import JobPage from "./views/JobPage.tsx";
 import Tab from "./components/Tab.tsx";
 import SavedPage from "./views/SavedPage";
+import PrepPage from "./views/PrepPage";
 import "./App.css";
 
 type View = "job" | "saved" | "prep";
-
-function ComingSoon({ text }: { text: string }) {
-  return (
-    <main className="page">
-      <p className="app__soon">{text}</p>
-    </main>
-  );
-}
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -54,7 +47,7 @@ export default function App() {
 
       {view === "job" && <JobPage />}
       {view === "saved" && <SavedPage />}
-      {view === "prep" && <ComingSoon text="interview prep is coming soon" />}
+      {view === "prep" && <PrepPage />}
     </div>
   );
 }

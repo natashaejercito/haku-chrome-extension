@@ -14,5 +14,6 @@ export default defineManifest({
     "https://*.greenhouse.io/*",
     "https://*.myworkdayjobs.com/*",
     "https://*.indeed.com/*",
+    "http://localhost:8787/*",
   ],
 });

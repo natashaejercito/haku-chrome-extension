@@ -5,5 +5,10 @@ import manifest from "./manifest.config.ts";
 
 export default defineConfig({
   plugins: [react(), crx({ manifest })],
+  build: {
+    rollupOptions: {
+      input: { permission: "permission.html" },
+    },
+  },
   server: { cors: { origin: [/chrome-extension:\/\//] } },
 });

@@ -17,12 +17,29 @@ export type ExtractedJob = JobDraft & {
 // what gets stored in your journal
 export type JobStatus = "saved" | "applied" | "interview" | "rejected";
 
-// what gets stored in your journal
+export type QuestionType = 'technical' | 'behavioural' | 'company';
+
+export type PrepQuestion = {
+  id: string;
+  type: QuestionType;
+  text: string;
+  answer?: string;
+  practicedAt?: string; // when you pressed it
+};
+
+export type Prep = {
+  skills: string[];
+  questions: PrepQuestion[];
+  createdAt: string;
+};
+
 export type SavedJob = ExtractedJob & {
   id: string;
   savedAt: string;
   status: JobStatus;
   statusChangedAt: string;
-  appliedAt?: string; // ISO date, the first time it was marked applied
+  appliedAt?: string;
   interviewDate?: string;
+  prep?: Prep; // saved once, so Gemini is only asked once per job
 };
+
