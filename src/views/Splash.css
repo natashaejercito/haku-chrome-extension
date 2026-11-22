@@ -11,17 +11,19 @@
 
 .splash__clovers {
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: -200px;                    /* the extra part starts above the screen */
   width: 100%;
-  height: 100%;
+  height: calc(100% + 200px);
   object-fit: cover;
-  animation: clovers-fall 2s ease-out both;
+  object-position: bottom;
+  animation: clovers-fall 2.4s ease-out both;
 }
 
 .splash__text {
   position: relative;
   text-align: center;
-  animation: text-in 1.2s ease-out 0.6s both;  /* starts 0.6s in */
+  animation: text-in 1.2s ease-out 0.9s both;  
 }
 
 .splash__logo {
@@ -40,8 +42,8 @@
 }
 
 @keyframes clovers-fall {
-  from { transform: translateY(-160px); }
-  to   { transform: translateY(0); }
+  from { transform: translateY(0); }
+  to   { transform: translateY(200px); }
 }
 
 @keyframes text-in {

@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Field from "../components/Field";
 import PressedClover from "../components/PressedClover";
-import Stamp from "../components/Stamp";
 import ThisWeek from "../components/ThisWeek";
 import { readCurrentJob } from "../lib/extract";
 import { countThisWeek, getJobs, saveJob } from "../lib/storage";
@@ -207,8 +206,6 @@ export default function JobPage() {
             </button>
           </div>
         </form>
-
-        {job.site && <Stamp site={job.site} />}
       </main>
 
       <ThisWeek count={countThisWeek(savedJobs)} />

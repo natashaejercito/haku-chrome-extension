@@ -1,6 +1,6 @@
 .app {
   padding: 18px 20px 24px;
-  animation: fade-in 400ms ease-out;  /* soft hand-over from the splash */
+  animation: fade-in 400ms to fade-in 700ms;  
 }
 
 .app__header {

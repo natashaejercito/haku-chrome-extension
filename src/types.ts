@@ -15,7 +15,13 @@ export type ExtractedJob = JobDraft & {
 };
 
 // what gets stored in your journal
+export type JobStatus = "saved" | "applied" | "interview" | "rejected";
+
+// what gets stored in your journal
 export type SavedJob = ExtractedJob & {
   id: string;
-  savedAt: string; // ISO date, e.g. "2026-11-19T20:30:00.000Z"
+  savedAt: string; // ISO date
+  status: JobStatus;
+  statusChangedAt: string; // ISO date, when the status last changed
+  interviewDate?: string; // "YYYY-MM-DD", only for interviews
 };

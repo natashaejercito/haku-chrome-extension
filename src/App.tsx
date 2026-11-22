@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import Splash from "./views/Splash.tsx";
 import JobPage from "./views/JobPage.tsx";
 import Tab from "./components/Tab.tsx";
+import SavedPage from "./views/SavedPage";
 import "./App.css";
 
 type View = "job" | "saved" | "prep";
@@ -28,7 +29,9 @@ export default function App() {
     <div className="app">
       <header className="app__header">
         <p className="app__logo">haku</p>
-        <p className="app__note">found a job? let's save it</p>
+        {view === "job" && (
+          <p className="app__note">found a job? let's save it</p>
+        )}
       </header>
 
       <nav className="app__tabs" aria-label="Haku sections">
@@ -50,7 +53,7 @@ export default function App() {
       </nav>
 
       {view === "job" && <JobPage />}
-      {view === "saved" && <ComingSoon text="your saved jobs will live here" />}
+      {view === "saved" && <SavedPage />}
       {view === "prep" && <ComingSoon text="interview prep is coming soon" />}
     </div>
   );

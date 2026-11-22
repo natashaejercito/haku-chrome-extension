@@ -1,0 +1,98 @@
+.entry { border-bottom: 1px dashed var(--tab-grey); }
+.entry:last-child { border-bottom: none; }
+
+.entry__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.entry__row:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+
+/* ".entry " in front keeps these from clashing with the Job page's
+   entry__no and entry__date (CSS classes apply to the whole app) */
+.entry .entry__no {
+  flex: none;
+  width: 30px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.entry__info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+.entry__title,
+.entry__company { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.entry__title { font-size: 14px; font-weight: 600; }
+.entry__company { margin-top: 2px; font-size: 12.5px; color: var(--ink-muted); }
+
+.entry__meta { display: flex; align-items: center; gap: 8px; margin-top: 7px; }
+
+.entry__next { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-muted); }
+.entry__next--soon { color: #2F6B48; font-weight: 700; }
+.entry__next--deadline { color: var(--rust); }
+
+.entry__chevron {
+  flex: none;
+  color: var(--line);
+  transition: color 150ms ease-out, transform 150ms ease-out;
+}
+
+.entry__row:hover .entry__chevron { color: var(--teal); }
+.entry__row[aria-expanded='true'] .entry__chevron { color: var(--teal); transform: rotate(90deg); }
+
+.entry__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 0 14px 42px;  /* lines up with the title, past the entry number */
+}
+
+.entry__statuses { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.entry .entry__date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.entry .entry__date input {
+  padding: 4px 6px;
+  border: 1px solid var(--tab-grey);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.entry__links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.entry__links a { color: var(--teal); }
+
+.entry__remove {
+  margin-left: auto;
+  border: none;
+  background: none;
+  color: var(--rust);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+}

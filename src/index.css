@@ -43,3 +43,31 @@ button, input, textarea { font: inherit; }
     transition-duration: 0.01ms !important;
   }
 }
+
+.chip {
+  padding: 5px 10px;
+  border: 1px solid var(--tab-grey);
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: var(--tab-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.chip--on {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.page {
+  position: relative;          /* so the clover and stamp position inside it */
+  padding: 22px 22px 20px;
+  background: var(--paper);
+  border-radius: 4px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

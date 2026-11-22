@@ -1,13 +1,3 @@
-.page {
-  position: relative;          /* so the clover and stamp position inside it */
-  padding: 22px 22px 20px;
-  background: var(--paper);
-  border-radius: 4px 10px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
 .entry__no {
   margin: 0;
   font-family: var(--font-mono);

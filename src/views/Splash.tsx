@@ -8,7 +8,7 @@ export default function Splash({ onDone }: { onDone: () => void }) {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const timer = window.setTimeout(onDone, reduceMotion ? 300 : 2200);
+    const timer = window.setTimeout(onDone, reduceMotion ? 300 : 3000);
     return () => window.clearTimeout(timer); // cleans up if the splash closes early
   }, [onDone]);
 
