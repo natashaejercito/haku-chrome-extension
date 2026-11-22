@@ -1,11 +1,16 @@
 import type { Prep, QuestionType, SavedJob } from "../types";
 
-const SERVER = "http://localhost:8787";
+const SERVER = import.meta.env.VITE_SERVER_URL as string;
 
 type PrepReply = {
   skills: string[];
   questions: { type: QuestionType; text: string }[];
 };
+
+// Render's free tier sleeps after 15 minutes; this wakes it early, and errors are ignored
+export function wakeServer() {
+  fetch(`${SERVER}/health`).catch(() => {});
+}
 
 export async function fetchPrep(job: SavedJob): Promise<Prep> {
   let res: Response;

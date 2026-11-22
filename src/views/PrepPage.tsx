@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import clover from "../assets/clover.svg";
 import QuestionCard from "../components/QuestionCard";
-import { fetchPrep } from "../lib/api";
+import { fetchPrep, wakeServer } from "../lib/api";
 import { daysFromToday, localDate } from "../lib/dates";
 import { countdownNote, nextInterview, todaysQuestions } from "../lib/prep";
 import { getJobs, onJobsChanged, updateJob } from "../lib/storage";
@@ -18,6 +18,7 @@ export default function PrepPage() {
   const asked = useRef(new Set<string>()); // jobs we already asked Gemini about
 
   useEffect(() => {
+    wakeServer();
     getJobs().then((all) => {
       setJobs(all);
       setLoaded(true);
@@ -118,7 +119,9 @@ export default function PrepPage() {
       )}
 
       {!job.prep && !error && (
-        <p className="prep__loading">writing your questions…</p>
+        <p className="prep__loading">
+          writing your questions… this can take up to a minute the first time.
+        </p>
       )}
 
       {job.prep && (
@@ -164,10 +167,7 @@ export default function PrepPage() {
               </p>
               <div className="prep__skills">
                 {job.prep.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="prep__skill"
-                  >
+                  <span key={skill} className="prep__skill">
                     {skill.toUpperCase()}
                   </span>
                 ))}
