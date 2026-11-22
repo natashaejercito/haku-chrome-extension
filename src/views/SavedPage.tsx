@@ -3,6 +3,7 @@ import SavedRow from "../components/SavedRow";
 import { getJobs, onJobsChanged } from "../lib/storage";
 import { weekLabel } from "../lib/dates";
 import type { JobStatus, SavedJob } from "../types";
+import SavedDetails from "./SavedDetails";
 import "./SavedPage.css";
 
 type Filter = "all" | JobStatus;
@@ -11,6 +12,7 @@ const filters: Filter[] = ["all", "saved", "applied", "interview", "rejected"];
 export default function SavedPage() {
   const [jobs, setJobs] = useState<SavedJob[]>([]);
   const [filter, setFilter] = useState<Filter>("all");
+  const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
     getJobs().then(setJobs);
@@ -33,6 +35,17 @@ export default function SavedPage() {
     if (group) group.jobs.push(job);
     else groups.push({ label, jobs: [job] });
   }
+
+    const openJob = jobs.find((job) => job.id === openId);
+    if (openJob) {
+      return (
+        <SavedDetails
+          job={openJob}
+          entryNo={entryNo.get(openJob.id) ?? 0}
+          onBack={() => setOpenId(null)}
+        />
+      );
+    }
 
   return (
     <>
@@ -80,6 +93,7 @@ export default function SavedPage() {
                   key={job.id}
                   job={job}
                   entryNo={entryNo.get(job.id) ?? 0}
+                  onOpen={setOpenId}
                 />
               ))}
             </ul>

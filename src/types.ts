@@ -20,8 +20,9 @@ export type JobStatus = "saved" | "applied" | "interview" | "rejected";
 // what gets stored in your journal
 export type SavedJob = ExtractedJob & {
   id: string;
-  savedAt: string; // ISO date
+  savedAt: string;
   status: JobStatus;
-  statusChangedAt: string; // ISO date, when the status last changed
-  interviewDate?: string; // "YYYY-MM-DD", only for interviews
+  statusChangedAt: string;
+  appliedAt?: string; // ISO date, the first time it was marked applied
+  interviewDate?: string;
 };

@@ -72,7 +72,7 @@ export function extractJob(): ExtractedJob {
         location: place?.address?.addressLocality ?? "",
         jobId: id ?? "",
         applyBy: shortDate(job.validThrough),
-        description: description.trim().slice(0, 5000),
+        description: description.trim().slice(0, 20000),
         site,
         url: window.location.href,
       };

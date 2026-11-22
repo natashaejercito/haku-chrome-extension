@@ -1,6 +1,7 @@
 import clover from "../assets/clover.svg";
 import "./PressedClover.css";
 
+
 export default function PressedClover() {
   return (
     <div className="pressed" aria-hidden="true">

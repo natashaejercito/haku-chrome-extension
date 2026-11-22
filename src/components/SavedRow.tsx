@@ -10,16 +10,23 @@ const statuses: JobStatus[] = ["saved", "applied", "interview", "rejected"];
 type SavedRowProps = {
   job: SavedJob;
   entryNo: number;
+  onOpen: (id: string) => void;
 };
 
-export default function SavedRow({ job, entryNo }: SavedRowProps) {
+export default function SavedRow({ job, entryNo, onOpen }: SavedRowProps) {
   const [open, setOpen] = useState(false);
   const next = nextStep(job);
   const detailsId = `entry-${job.id}`;
 
-  function changeStatus(status: JobStatus) {
+    function changeStatus(status: JobStatus) {
     if (status === job.status) return;
-    updateJob(job.id, { status, statusChangedAt: new Date().toISOString() });
+    const now = new Date().toISOString();
+    updateJob(job.id, {
+      status,
+      statusChangedAt: now,
+      // remember the first time you applied, even after it moves on to interview
+      ...(status === 'applied' && !job.appliedAt ? { appliedAt: now } : {}),
+    });
   }
 
   return (
@@ -96,11 +103,13 @@ export default function SavedRow({ job, entryNo }: SavedRowProps) {
           )}
 
           <div className="entry__links">
-            {job.url && (
-              <a href={job.url} target="_blank" rel="noreferrer">
-                open posting{job.site ? ` · ${job.site.toLowerCase()}` : ""}
-              </a>
-            )}
+            <button
+              type="button"
+              className="entry__more"
+              onClick={() => onOpen(job.id)}
+            >
+              more details →
+            </button>
             <button
               type="button"
               className="entry__remove"

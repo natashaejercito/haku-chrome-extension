@@ -84,7 +84,17 @@
   font-size: 11px;
 }
 
-.entry__links a { color: var(--teal); }
+.entry__more {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
 
 .entry__remove {
   margin-left: auto;
